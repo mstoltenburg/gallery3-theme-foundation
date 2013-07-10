@@ -1,0 +1,10 @@
+name = "Foundation"
+description = "A theme based on foundation: the most advanced responsive front-end framework from ZURB."
+version = 1
+author = "slomo"
+site = 1
+admin = 0
+author_name = "Moritz Stoltenburg"
+author_url = "http://codex.galleryproject.org/Gallery:slomo"
+info_url = "http://codex.galleryproject.org/Gallery3:Themes:foundation"
+discuss_url = "http://galleryproject.org/forum_theme_foundation"
