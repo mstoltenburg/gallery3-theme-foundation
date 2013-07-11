@@ -22,14 +22,6 @@
   font-size: 1.1em;
 }
 
-#g-sidebar .g-block h2 {
-  font-size: 1.2em;
-}
-
-#g-sidebar .g-block li {
-  margin-bottom: .6em;
-}
-
 #g-content,
 #g-site-menu,
 h3 {
@@ -37,7 +29,6 @@ h3 {
 
 #g-sidebar,
 .g-breadcrumbs {
-//  font-size: .9em;
 }
 
 #g-banner,
@@ -52,19 +43,6 @@ h3 {
 }
 
 /* Links ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-a,
-.g-menu a,
-#g-dialog a,
-.g-button,
-.g-button:hover,
-.g-button:active,
-a.ui-state-hover,
-input.ui-state-hover,
-button.ui-state-hover {
-  cursor: pointer !important;
-  -moz-outline-style: none;
-}
 
 a:hover,
 #g-dialog a:hover {
@@ -98,29 +76,16 @@ ol.g-text li,
   margin-left: 1em;
 }
 
-/* Forms ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-#g-banner fieldset,
-#g-sidebar fieldset {
-  border: none;
-  padding: 0;
-}
-
-#g-banner legend,
-#g-sidebar legend,
-input[type="hidden"] {
-  display: none;
-}
-
 /* Form layout ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 form li {
   margin: 0;
-  padding: 0 0 .2em 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 form ul {
-  margin-top: 0;
+  margin: 0;
 }
 
 form ul ul {
@@ -140,18 +105,12 @@ form ul ul li {
 #g-dialog fieldset,
 #g-panel fieldset {
   border: none;
+  margin: 0;
   padding: 0;
 }
 
 #g-panel legend {
   display: none;
-}
-
-#g-dialog input.textbox,
-#g-dialog input[type=text],
-#g-dialog input[type=password],
-#g-dialog textarea {
-  width: 97%;
 }
 
 /* Short forms ~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -163,24 +122,8 @@ form ul ul li {
 
 .g-short-form fieldset {
   border: none;
+  margin: 0;
   padding: 0;
-}
-
-.g-short-form li {
-  float: left;
-  margin: 0 !important;
-  padding: .4em 0;
-}
-
-.g-short-form .textbox,
-.g-short-form input[type=text] {
-  color: #666;
-  padding: .3em .6em;
-  width: 100%;
-}
-
-.g-short-form .submit {
-  padding: .3em .6em;
 }
 
 .g-short-form .textbox.g-error {
@@ -195,9 +138,8 @@ form ul ul li {
   padding: .3em .6em;
 }
 
-#g-sidebar .g-short-form li {
-  padding-left: 0;
-  padding-right: 0;
+#g-sidebar .g-short-form .textbox {
+  width: 100%;
 }
 
 /* Tables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -309,7 +251,15 @@ form ul ul li {
 
 /* Sidebar  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+#g-sidebar .g-block h2 {
+  font-size: 1em;
+}
+
+#g-sidebar .g-block li {
+}
+
 #g-sidebar .g-block-content {
+	font-size: emCalc(13px);
 }
 
 #g-sidebar #g-image-block {
@@ -771,23 +721,12 @@ ul.sf-menu li li li.sfHover ul {
 
 /* Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+button,
 .g-button {
-  display: inline-block;
-  margin: 0 4px 0 0;
-  padding: .2em .4em;
-}
-
-.g-button,
-.g-button:hover,
-.g-button:active {
-  cursor: pointer !important;
-  outline: 0;
-  text-decoration: none;
-  -moz-outline-style: none;
-}
-
-button {
-  padding: 2px 4px 2px 4px;
+  @include button;
+  @include radius;
+  @include single-transition;
+  @include inset-shadow();
 }
 
 /* jQuery UI ThemeRoller buttons ~~~~~~~~~ */
