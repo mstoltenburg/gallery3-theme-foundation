@@ -24,19 +24,6 @@
 					type="image/x-icon" />
 		<link rel="apple-touch-icon-precomposed"
 					href="<?= url::file(module::get_var("gallery", "apple_touch_icon_url")) ?>" />
-		<? if ($theme->page_type == "collection"): ?>
-		<? if (($thumb_proportion = $theme->thumb_proportion($theme->item())) != 1): ?>
-				<? $new_width = round($thumb_proportion * 213) ?>
-				<? $new_height = round($thumb_proportion * 240) ?>
-				<style type="text/css">
-				.g-view #g-content #g-album-grid .g-item {
-					width: <?= $new_width ?>px;
-					height: <?= $new_height ?>px;
-					/* <?= $thumb_proportion ?> */
-				}
-				</style>
-			<? endif ?>
-		<? endif ?>
 
 		<?= $theme->script("vendor/custom.modernizr.js") ?>
 		<?= $theme->script("json2-min.js") ?>

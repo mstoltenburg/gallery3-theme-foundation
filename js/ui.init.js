@@ -49,17 +49,17 @@ $(document).ready(function() {
   // Album and search results views
   if ($("#g-album-grid").length) {
     // Set equal height for album items and vertically align thumbnails/metadata
-    $(".g-item").equal_heights().gallery_valign();
+//     $(".g-item").equal_heights().gallery_valign();
     // Store the resulting item height.  Storing this here for the whole grid as opposed to in the
     // hover event as an attr for each item is more efficient and ensures IE6-8 compatibility.
-    var item_height = $(".g-item").height();
+//     var item_height = $(".g-item").height();
 
     // Initialize thumbnail hover effect
     $(".g-item").hover(
       function() {
         // Insert a placeholder to hold the item's position in the grid
-        var place_holder = $(this).clone().attr("id", "g-place-holder");
-        $(this).after($(place_holder));
+//         var place_holder = $(this).clone().attr("id", "g-place-holder");
+//         $(this).after($(place_holder));
         // Style and position the hover item
         var position = $(this).position();
         $(this).css("top", position.top).css("left", position.left);
@@ -68,17 +68,17 @@ $(document).ready(function() {
         $(this).gallery_context_menu();
         // Set the hover item's height.  Use "li a" on the context menu so we get the height of the
         // collapsed menu and avoid problems with incomplete slideUp/Down animations.
-        $(this).height("auto");
-        $(this).height(Math.max($(this).height(), item_height) +
-                       $(this).find(".g-context-menu li a").height());
+//         $(this).height("auto");
+//         $(this).height(Math.max($(this).height(), item_height) +
+//                        $(this).find(".g-context-menu li a").height());
       },
       function() {
         // Reset item height and position
-        $(this).height(item_height);
+//         $(this).height(item_height);
         $(this).css("top", "").css("left", "");
         // Remove the placeholder and hover class from the item
-        $(this).removeClass("g-hover-item");
-        $("#g-place-holder").remove();
+//         $(this).removeClass("g-hover-item");
+//         $("#g-place-holder").remove();
       }
     );
 

@@ -275,18 +275,21 @@ form ul ul li {
 }
 
 #g-content #g-album-grid .g-item {
-  background-color: #fff;
-  border: 1px solid #fff;
-  float: left;
-  padding: .6em 8px;
   position: relative;
   text-align: center;
-  width: 213px;
   z-index: 1;
+}
+
+#g-content #g-album-grid .g-item > div {
 }
 
 #g-content #g-album-grid .g-item h2 {
   margin: 5px 0;
+}
+
+#g-content #g-album-grid .g-item img {
+	width: 100%;
+	@include thumb;
 }
 
 #g-content .g-photo h2,
@@ -309,7 +312,6 @@ form ul ul li {
 }
 
 #g-content #g-album-grid .g-hover-item {
-  border: 1px solid #000;
   position: absolute !important;
   z-index: 1000 !important;
 }
