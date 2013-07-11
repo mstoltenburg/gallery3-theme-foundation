@@ -61,8 +61,8 @@ $(document).ready(function() {
 //         var place_holder = $(this).clone().attr("id", "g-place-holder");
 //         $(this).after($(place_holder));
         // Style and position the hover item
-        var position = $(this).position();
-        $(this).css("top", position.top).css("left", position.left);
+//         var position = $(this).position();
+//         $(this).css("top", position.top).css("left", position.left);
         $(this).addClass("g-hover-item");
         // Initialize the contextual menu. Note that putting it here delays execution until needed.
         $(this).gallery_context_menu();
@@ -77,7 +77,7 @@ $(document).ready(function() {
 //         $(this).height(item_height);
         $(this).css("top", "").css("left", "");
         // Remove the placeholder and hover class from the item
-//         $(this).removeClass("g-hover-item");
+        $(this).removeClass("g-hover-item");
 //         $("#g-place-holder").remove();
       }
     );
