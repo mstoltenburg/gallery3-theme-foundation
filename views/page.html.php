@@ -70,6 +70,20 @@
 	</head>
 
 	<body <?= $theme->body_attributes() ?>>
+						<nav class="top-bar">
+							<ul class="title-area">
+								<!-- Title Area -->
+								<li class="name">
+									<h1><a href="#">Top Bar Title </a></h1>
+								</li>
+								<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+								<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+							</ul>
+
+							<section class="top-bar-section">
+								<?= $theme->site_menu($theme->item() ? "#g-item-id-{$theme->item()->id}" : "") ?>
+							</section>
+						</nav>
 		<?= $theme->page_top() ?>
 		<div class="g-view">
 			<?= $theme->site_status() ?>
@@ -85,11 +99,8 @@
 					<?= $theme->user_menu() ?>
 					<?= $theme->header_top() ?>
 
-					<!-- hide the menu until after the page has loaded, to minimize menu flicker -->
-					<div id="g-site-menu" style="visibility: hidden">
-						<?= $theme->site_menu($theme->item() ? "#g-item-id-{$theme->item()->id}" : "") ?>
+					<div id="g-site-menu">
 					</div>
-					<script type="text/javascript"> $(document).ready(function() { $("#g-site-menu").css("visibility", "visible"); }) </script>
 
 					<?= $theme->header_bottom() ?>
 				</div>
@@ -97,7 +108,7 @@
 				<? if (!empty($breadcrumbs)): ?>
 				<ul class="g-breadcrumbs">
 					<? foreach ($breadcrumbs as $breadcrumb): ?>
-					 	<?= $breadcrumb->last ? '<li class="current">' : "<li>" ?>
+						<?= $breadcrumb->last ? '<li class="current">' : "<li>" ?>
 						<? if (!$breadcrumb->last): ?> <a href="<?= $breadcrumb->url ?>"><? endif ?>
 						<?= html::clean(text::limit_chars($breadcrumb->title, module::get_var("gallery", "visible_title_length"))) ?>
 						<? if (!$breadcrumb->last): ?></a><? endif ?>
@@ -142,5 +153,11 @@
 			</footer>
 		</div>
 		<?= $theme->page_bottom() ?>
+		<?= $theme->script("foundation/foundation.js", "body") ?>
+		<?= $theme->script("foundation/foundation.topbar.js", "body") ?>
+		<?= $theme->get_combined("script", "body") ?>
+		<script>
+			$(document).foundation();
+		</script>
 	</body>
 </html>

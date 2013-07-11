@@ -5,16 +5,16 @@
 $(document).ready(function() {
 
   // Initialize Superfish menus (hidden, then shown to address IE issue)
-  $("#g-site-menu .g-menu").hide().addClass("sf-menu");
-  $("#g-site-menu .g-menu").superfish({
-    delay: 500,
-    animation: {
-      opacity:'show',
-      height:'show'
-    },
-    pathClass: "g-selected",
-    speed: 'fast'
-  }).show();
+//   $("#g-site-menu .g-menu").hide().addClass("sf-menu");
+//   $("#g-site-menu .g-menu").superfish({
+//     delay: 500,
+//     animation: {
+//       opacity:'show',
+//       height:'show'
+//     },
+//     pathClass: "g-selected",
+//     speed: 'fast'
+//   }).show();
 
   // Initialize status message effects
   $("#g-action-status li").gallery_show_message();

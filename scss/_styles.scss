@@ -22,15 +22,6 @@
   font-size: 1.1em;
 }
 
-#g-content,
-#g-site-menu,
-h3 {
-}
-
-#g-sidebar,
-.g-breadcrumbs {
-}
-
 #g-banner,
 .g-message {
   font-size: .8em;
@@ -576,18 +567,6 @@ form .g-error {
 
 #g-banner #g-login-menu li {
   padding-left: 1.2em;
-}
-
-/* Site Menu  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-#g-site-menu {
-  bottom: 0;
-  left: 140px;
-  position: absolute;
-}
-
-#g-site-menu ul {
-  margin-bottom: 0 !important;
 }
 
 /* Context Menu  ~~~~~~~~~~~~~~~~~~~~~~~~~ */
