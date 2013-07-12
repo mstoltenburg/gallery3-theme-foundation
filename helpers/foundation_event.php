@@ -20,9 +20,19 @@
 
 class foundation_event_Core {
 
+	const TEMPLATE_DROPDOWN = 'dropdown.html';
+	const TEMPLATE_TOPBAR   = 'topbar.html';
+
+	static function context_menu($menu, $theme, $item, $thumb_css_selector)
+	{
+		$menu->view('dropdown.html')->css_class('context-menu-dropdown');
+
+		self::_changeMenuRecursive($menu, self::TEMPLATE_DROPDOWN, $item);
+	}
+
 	static function user_menu($menu, $theme)
 	{
-		$menu->view('topbar.html')->css_class('right');
+		$menu->view(self::TEMPLATE_TOPBAR)->css_class('right');
 
 		$profile = $menu->get('user_menu_edit_profile');
 
@@ -39,24 +49,29 @@ class foundation_event_Core {
 			$profile->view(null);
 		}
 
-		self::_changeView($menu);
+		self::_changeMenuRecursive($menu, self::TEMPLATE_TOPBAR);
 	}
 
 	static function site_menu($menu, $theme, $item_css_selector)
 	{
 		$menu->remove("home");
 
-		$menu->view('topbar.html')->css_class('left');
+		$menu->view(self::TEMPLATE_TOPBAR)->css_class('left');
 
-		self::_changeView($menu);
+		self::_changeMenuRecursive($menu, self::TEMPLATE_TOPBAR);
 	}
 
-	private static function _changeView($menu)
+	private static function _changeMenuRecursive($menu, $view, $item = null)
 	{
 		foreach ($menu->elements as $element) {
 			if ($element instanceof Menu) {
-				$element->view('topbar.html');
-				self::_changeView($element);
+				$element->view($view);
+
+				if ($item && empty($element->css_id)) {
+					$element->css_id($item->id);
+				}
+
+				self::_changeMenuRecursive($element, $view);
 			}
 		}
 	}

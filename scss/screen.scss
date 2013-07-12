@@ -3,6 +3,10 @@ $topbar-margin-bottom: 0;
 // Foundation Framework
 @import "foundation";
 
+// fix topbar item direction
+.top-bar .left { float: $default-float !important; }
+.top-bar .right { float: $opposite-direction !important; }
+
 // UI styles
 @import "ui.base";
 

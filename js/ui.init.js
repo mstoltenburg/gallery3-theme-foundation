@@ -21,18 +21,18 @@ $(document).ready(function() {
   }
 
   // Apply jQuery UI icon and hover styles to context menus
-  if ($(".g-context-menu").length) {
-    $(".g-context-menu li").addClass("ui-state-default");
-    $(".g-context-menu a").addClass("g-button ui-icon-left");
-    $(".g-context-menu a").prepend("<span class=\"ui-icon\"></span>");
-    $(".g-context-menu a span").each(function() {
-      var iconClass = $(this).parent().attr("class").match(/ui-icon-.[^\s]+/).toString();
-      $(this).addClass(iconClass);
-    });
-  }
+//   if ($(".g-context-menu").length) {
+//     $(".g-context-menu li").addClass("ui-state-default");
+//     $(".g-context-menu a").addClass("g-button ui-icon-left");
+//     $(".g-context-menu a").prepend("<span class=\"ui-icon\"></span>");
+//     $(".g-context-menu a span").each(function() {
+//       var iconClass = $(this).parent().attr("class").match(/ui-icon-.[^\s]+/).toString();
+//       $(this).addClass(iconClass);
+//     });
+//   }
 
   // Remove titles for menu options since we're displaying that text anyway
-  $(".sf-menu a, .sf-menu li").removeAttr("title");
+//  $(".sf-menu a, .sf-menu li").removeAttr("title");
 
   // Album and search results views
   if ($("#g-album-grid").length) {
@@ -51,7 +51,7 @@ $(document).ready(function() {
         // Style and position the hover item
 //         var position = $(this).position();
 //         $(this).css("top", position.top).css("left", position.left);
-        $(this).addClass("g-hover-item");
+//        $(this).addClass("g-hover-item");
         // Initialize the contextual menu. Note that putting it here delays execution until needed.
         $(this).gallery_context_menu();
         // Set the hover item's height.  Use "li a" on the context menu so we get the height of the
@@ -63,9 +63,9 @@ $(document).ready(function() {
       function() {
         // Reset item height and position
 //         $(this).height(item_height);
-        $(this).css("top", "").css("left", "");
+//         $(this).css("top", "").css("left", "");
         // Remove the placeholder and hover class from the item
-        $(this).removeClass("g-hover-item");
+//        $(this).removeClass("g-hover-item");
 //         $("#g-place-holder").remove();
       }
     );

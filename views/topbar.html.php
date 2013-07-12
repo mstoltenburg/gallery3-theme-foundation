@@ -12,7 +12,7 @@
 <? else: ?>
 
 <li class="divider"></li>
-<li title="<?= $menu->label->for_html_attr() ?>" class="has-dropdown">
+<li class="has-dropdown">
 	<a href="#">
 		<?= $menu->label->for_html() ?>
 	</a>

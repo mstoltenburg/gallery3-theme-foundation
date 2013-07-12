@@ -26,27 +26,37 @@
 	font-size: .8em;
 }
 
-#g-album-grid .g-item,
-#g-item #g-photo,
-#g-item #g-movie {
-	font-size: .7em;
-}
-
 ul li {
 	list-style-type: none;
 }
 
+.context-menu-dropdown {
+	margin: .5em 0 0 0;
+	text-align: $default-float;
+
+	.button {
+		width: 100%;
+		margin: 0;
+	}
+
+	ul {
+		// font-size: .9285em;
+	}
+}
+
+fieldset legend:empty { display: none; }
+
 /* Links ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-a:hover {
-	text-decoration: underline;
-}
+// a:hover {
+// 	text-decoration: underline;
+// }
 
-.g-paginator a:hover,
-.top-bar a:hover,
-.g-menu a:hover {
-	text-decoration: none;
-}
+// .g-paginator a:hover,
+// .top-bar a:hover,
+// .g-menu a:hover {
+// 	text-decoration: none;
+// }
 
 #g-dialog #g-action-status li {
 	width: 434px;
@@ -258,15 +268,12 @@ form ul ul li {
 /* Album content ~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #g-content #g-album-grid {
-	margin: 1em 0;
-	position: relative;
-	z-index: 1;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 #g-content #g-album-grid .g-item {
-	position: relative;
-	text-align: center;
-	z-index: 1;
+//	text-align: center;
 }
 
 #g-content #g-album-grid .g-item > div {
@@ -289,7 +296,6 @@ form ul ul li {
 }
 
 #g-content #g-album-grid .g-album {
-	background-color: #e8e8e8;
 }
 
 #g-content #g-album-grid .g-album h2 span.g-album {
@@ -358,10 +364,6 @@ form ul ul li {
 	background-image: none;
 }
 
-#g-edit-permissions-form fieldset {
-	border: 1px solid #ccc;
-}
-
 #g-permissions .g-denied {
 	background-color: #fcc;
 }
@@ -371,12 +373,9 @@ form ul ul li {
 }
 
 #g-permissions .g-breadcrumbs a {
-	border: 1px solid #fff;
 }
 
 #g-permissions .g-active a {
-	border: 1px solid #ddd;
-	background: #eee;
 }
 
 /** *******************************************************************

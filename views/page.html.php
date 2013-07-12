@@ -36,7 +36,6 @@
 		var MSG_CANCEL = <?= t('Cancel')->for_js() ?>;
 		</script>
 		<?= $theme->script("gallery.ajax.js") ?>
-		<?= $theme->script("gallery.dialog.js") ?>
 		<?= $theme->script("jquery.localscroll.js") ?>
 
 		<? /* These are page specific but they get combined */ ?>
@@ -123,6 +122,8 @@
 			</div>
 		</div>
 
+		<div id="widget" class="reveal-modal"></div>
+
 		<footer id="g-footer" class="row">
 			 <div class="large-12 columns">
 				<hr>
@@ -145,7 +146,10 @@
 		</footer>
 		<?= $theme->page_bottom() ?>
 		<?= $theme->script("foundation/foundation.js", "body") ?>
+		<?= $theme->script("foundation/foundation.dropdown.js", "body") ?>
+		<?= $theme->script("foundation/foundation.reveal.js", "body") ?>
 		<?= $theme->script("foundation/foundation.topbar.js", "body") ?>
+		<?= $theme->script("gallery.dialog.js", "body") ?>
 		<?= $theme->get_combined("script", "body") ?>
 		<script>
 			$(document).foundation();
