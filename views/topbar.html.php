@@ -6,10 +6,12 @@
 	<? foreach ($menu->elements as $element): ?>
 	<?= $element->render() ?>
 	<? endforeach ?>
+	<li class="divider"></li>
 </ul>
 
 <? else: ?>
 
+<li class="divider"></li>
 <li title="<?= $menu->label->for_html_attr() ?>" class="has-dropdown">
 	<a href="#">
 		<?= $menu->label->for_html() ?>

@@ -17,47 +17,28 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
+class foundation_theme_Core {
 
-class foundation_event_Core {
-
-	static function user_menu($menu, $theme)
+	static function html_attributes()
 	{
-		$menu->view('topbar.html')->css_class('right');
+		$locale = locales::cookie_locale();
 
-		$profile = $menu->get('user_menu_edit_profile');
+		if (empty($locale)) {
+			$locale = Gallery_I18n::instance()->locale();
 
-		if ($profile) {
-			$elements = $menu->elements;
-			$menu->elements = array();
-			$menu->append($submenu = Menu::factory("submenu")
-							->id("user_profile")
-							->label($profile->label));
-
-			$submenu->elements = $elements;
-
-			$profile->label = t('User profile');
-			$profile->view(null);
-		}
-
-		self::_changeView($menu);
-	}
-
-	static function site_menu($menu, $theme, $item_css_selector)
-	{
-		$menu->remove("home");
-
-		$menu->view('topbar.html')->css_class('left');
-
-		self::_changeView($menu);
-	}
-
-	private static function _changeView($menu)
-	{
-		foreach ($menu->elements as $element) {
-			if ($element instanceof Menu) {
-				$element->view('topbar.html');
-				self::_changeView($element);
+			if (empty($locale)) {
+				$locale = "xxx";
 			}
 		}
+
+		$language = substr($locale, 0, 2);
+		$attributes = 'lang="' . $language . '"';
+
+		if (locales::is_rtl()) {
+			$attributes .= ' dir="rtl"';
+		}
+
+		return $attributes;
 	}
+
 }

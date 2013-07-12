@@ -2,11 +2,6 @@
  * Fix display in IE 6, 7, and 8
  */
 
-#g-banner {
-  z-index: 2;
-  zoom: 1;
-}
-
 #g-sidebar {
   overflow: hidden;
 }
@@ -48,12 +43,4 @@ input.submit {
 #g-dialog .g-cancel {
   display: inline-block !important;
   float: none !important;
-}
-
-.g-paginator .g-text-right {
-  width: 29%;
-}
-
-.g-paginator .ui-icon-right {
-  width: 60px;
 }

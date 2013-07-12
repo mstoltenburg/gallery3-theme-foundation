@@ -26,28 +26,24 @@
 //
 ?>
 
-<ul class="g-paginator ui-helper-clearfix">
-  <li class="g-first">
+<ul class="g-paginator row">
+  <li class="g-first small-6 large-4 columns">
   <? if ($page_type == "collection"): ?>
     <? if (isset($first_page_url)): ?>
-      <a href="<?= $first_page_url ?>" class="g-button ui-icon-left ui-state-default ui-corner-all">
-        <span class="ui-icon ui-icon-seek-first"></span><?= t("First") ?></a>
+      <a href="<?= $first_page_url ?>" class="button small radius secondary">&#8676; <span class="xxx"><?= t("First") ?></span></a>
     <? else: ?>
-      <a class="g-button ui-icon-left ui-state-disabled ui-corner-all">
-        <span class="ui-icon ui-icon-seek-first"></span><?= t("First") ?></a>
+      <a class="button small radius secondary disabled">&#8676; <span class="xxx"><?= t("First") ?></span></a>
     <? endif ?>
   <? endif ?>
 
   <? if (isset($previous_page_url)): ?>
-    <a href="<?= $previous_page_url ?>" class="g-button ui-icon-left ui-state-default ui-corner-all">
-      <span class="ui-icon ui-icon-seek-prev"></span><?= t("Previous") ?></a>
+    <a href="<?= $previous_page_url ?>" class="button small radius secondary">&larr; <span class="xxx"><?= t("Previous") ?></span></a>
   <? else: ?>
-    <a class="g-button ui-icon-left ui-state-disabled ui-corner-all">
-      <span class="ui-icon ui-icon-seek-prev"></span><?= t("Previous") ?></a>
+    <a class="button small radius secondary disabled">&larr; <span class="xxx"><?= t("Previous") ?></span></a>
   <? endif ?>
   </li>
 
-  <li class="g-info">
+  <li class="g-info hide-for-small large-4 columns">
     <? if ($total): ?>
       <? if ($page_type == "collection"): ?>
         <?= /* @todo This message isn't easily localizable */
@@ -65,22 +61,18 @@
     <? endif ?>
   </li>
 
-  <li class="g-text-right">
+  <li class="g-text-right small-6 large-4 columns">
   <? if (isset($next_page_url)): ?>
-    <a href="<?= $next_page_url ?>" class="g-button ui-icon-right ui-state-default ui-corner-all">
-      <span class="ui-icon ui-icon-seek-next"></span><?= t("Next") ?></a>
+    <a href="<?= $next_page_url ?>" class="button small radius secondary"><span class="xxx"><?= t("Next") ?></span> &rarr;</a>
   <? else: ?>
-    <a class="g-button ui-state-disabled ui-icon-right ui-corner-all">
-      <span class="ui-icon ui-icon-seek-next"></span><?= t("Next") ?></a>
+    <a class="button small radius secondary disabled"><span class="xxx"><?= t("Next") ?></span> &rarr;</a>
   <? endif ?>
 
   <? if ($page_type == "collection"): ?>
     <? if (isset($last_page_url)): ?>
-      <a href="<?= $last_page_url ?>" class="g-button ui-icon-right ui-state-default ui-corner-all">
-        <span class="ui-icon ui-icon-seek-end"></span><?= t("Last") ?></a>
+      <a href="<?= $last_page_url ?>" class="button small radius secondary"><span class="xxx"><?= t("Last") ?></span> &#8677;</a>
     <? else: ?>
-      <a class="g-button ui-state-disabled ui-icon-right ui-corner-all">
-        <span class="ui-icon ui-icon-seek-end"></span><?= t("Last") ?></a>
+      <a class="button small radius secondary disabled"><span class="xxx"><?= t("Last") ?></span> &#8677;</a>
     <? endif ?>
   <? endif ?>
   </li>
