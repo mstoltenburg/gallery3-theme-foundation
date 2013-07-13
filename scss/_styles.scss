@@ -58,11 +58,11 @@ fieldset legend:empty { display: none; }
 // 	text-decoration: none;
 // }
 
-#g-dialog #g-action-status li {
-	width: 434px;
-	white-space: normal;
-	padding-left: 32px;
-}
+// #g-dialog #g-action-status li {
+// 	width: 434px;
+// 	white-space: normal;
+// 	padding-left: 32px;
+// }
 
 /* Lists ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -103,12 +103,22 @@ form ul ul {
 
 form ul ul li {
 	float: left;
+	margin-right: .75em;
+}
+
+textarea {
+	min-height: 8em;
+}
+
+#g-login-form,
+#g-add-user-form
+#g-edit-user-form,
+#g-delete-user-form,
+#g-user-admin {
+	width: auto;
 }
 
 /* Forms in dialogs and panels ~~~~~~~~~ */
-
-#g-dialog ul li {
-}
 
 #g-dialog fieldset,
 #g-panel fieldset {
@@ -117,8 +127,11 @@ form ul ul li {
 	padding: 0;
 }
 
+#g-dialog legend,
 #g-panel legend {
-	display: none;
+	margin: 0 0 1em 0;
+	padding: 0;
+	color: $primary-color;
 }
 
 /* Short forms ~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -382,6 +395,54 @@ form ul ul li {
  *  5) States and interactions
  **********************************************************************/
 
+.fadeIn {
+	-webkit-animation: fadeIn 2.5s ease .25s both;
+			animation: fadeIn 2.5s ease .25s both;
+}
+
+.fadeOut {
+	-webkit-animation-name: fadeOut, remove;
+			animation-name: fadeOut, remove;
+	-webkit-animation-duration: 2s, .5s;
+			animation-duration: 2s, .5s;
+	-webkit-animation-timing-function: ease;
+			animation-timing-function: ease;
+	-webkit-animation-delay: 0, 2s;
+			animation-delay: 0, 2s;
+	-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-webkit-keyframes remove {
+	0% {  }
+	100% { -webkit-transform: scale(0); }
+}
+
+@keyframes remove {
+	0% {  }
+	100% { transform: scale(0); }
+}
+
 .g-active,
 .g-enabled,
 .g-available,
@@ -413,8 +474,12 @@ form ul ul li {
 .g-error,
 .g-info,
 .g-success,
+.g-denied,
 .g-warning {
+	@include alert;
 	padding-left: 30px;
+	background-repeat: no-repeat;
+	background-position: .4em 50%;
 }
 
 form li.g-error,
@@ -449,18 +514,20 @@ li.g-error select {
 .g-denied,
 tr.g-error td.g-error,
 #g-add-photos-status .g-error {
-	background: #f6cbca url('../images/ico-error.png') no-repeat .4em 50%;
-	color: #f00;
+	@include alert-style($alert-color);
+	background-image: url('../images/ico-error.png');
 }
 
 .g-info {
-	background: #e8e8e8 url('../images/ico-info.png') no-repeat .4em 50%;
+	background-color: #e8e8e8;
+	background-image: url('../images/ico-info.png');
 }
 
 .g-success,
 .g-allowed,
 #g-add-photos-status .g-success {
-	background: #d9efc2 url('../images/ico-success.png') no-repeat .4em 50%;
+	@include alert-style($success-color);
+	background-image: url('../images/ico-success.png');
 }
 
 tr.g-success {
@@ -473,7 +540,8 @@ tr.g-success td.g-success {
 
 .g-warning,
 tr.g-warning td.g-warning {
-	background: #fcf9ce url('../images/ico-warning.png') no-repeat .4em 50%;
+	background-color: #fcf9ce;
+	background-image: url('../images/ico-warning.png');
 }
 
 form .g-error {
@@ -686,11 +754,16 @@ ul.sf-menu li li li.sfHover ul {
 
 /* Buttons ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+input.submit,
 button,
 .g-button {
-	@include button($button-med, $primary-color, $global-radius);
+	@include button($button-sml, $primary-color, $global-radius);
 	@include single-transition;
 	@include inset-shadow();
+	cursor: pointer;
+	// outline: 0;
+	// -moz-outline-style: none;
+	line-height: normal;
 }
 
 /* jQuery UI ThemeRoller buttons ~~~~~~~~~ */
@@ -736,30 +809,25 @@ button,
 
 /* Status and validation messages ~~~~ */
 
+#g-site-status,
 .g-message-block {
 	background-position: .4em .3em;
-	border: 1px solid #ccc;
+	// border: 1px solid #ccc;
 	padding: 0;
+	line-height: inherit;
+
+	.close { @include alert-close; }
 }
 
 #g-action-status {
 	margin-bottom: 1em;
 }
 
-#g-action-status li,
-p#g-action-status,
-div#g-action-status {
-	padding: .3em .3em .3em 30px;
-}
-
-#g-site-status li {
-	border-bottom: 1px solid #ccc;
-	padding: .3em .3em .3em 30px;
-}
-
 .g-module-status {
 	clear: both;
 	margin-bottom: 1em;
+
+	.close { @include alert-close; }
 }
 
 .g-message {
@@ -791,15 +859,18 @@ div#g-action-status {
 /* Dialogs and panels ~~~~~~~~~~~~~~~~~~ */
 
 #g-dialog {
-}
-
-#g-dialog legend {
-	display: none;
+	ul {
+		margin: 0;
+	}
 }
 
 #g-dialog .g-cancel {
-	margin: 0 .3em;
-	float: left;
+	@include button-style($bg:$secondary-color);
+}
+
+#g-dialog input.submit,
+#g-dialog .g-cancel {
+	margin-bottom: 0;
 }
 
 #g-panel {

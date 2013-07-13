@@ -111,6 +111,9 @@
 		<div id="bd" class="row">
 			<div class="large-9 columns">
 				<div id="g-content">
+					<ul class="g-message-block" id="g-action-status">
+						<li class="g-success">Album Bilder 23 gespeichert</li>
+					</ul>
 					<?= $theme->messages() ?>
 					<?= $content ?>
 				</div>
