@@ -8,12 +8,95 @@
 	// Override gallery function
 	$.fn.gallery_show_message = function() {
 		return this.each(function(i){
-			$(this).addClass("fadeIn").append('<a href="#" class="close">&times;</a>').on("click", ".close", function(event) {
+			$(this).hide().append('<a href="#" class="close">&times;</a>').on("click", ".close", function(event) {
 				event.preventDefault();
-				$(this).parent().removeClass("fadeIn").addClass("fadeOut");
-			});
+				$(this).parent().fadeOut(300, function () {
+					$(this).parent().remove();
+					// $(this).parent().slideUp(500);
+				});
+			}).fadeIn(1000);
 		});
 	};
+
+	$.widget( "ui.dialog", $.ui.dialog, {
+
+		_currentEvent: null,
+
+		open: function() {
+			var that = this;
+			if ( this._isOpen ) {
+				if ( this._moveToTop() ) {
+					this._focusTabbable();
+				}
+				return;
+			}
+
+			this._isOpen = true;
+			this.opener = $( this.document[0].activeElement );
+
+			this._size();
+			this._position();
+			this._moveToTop( null, true );
+
+			$(document).foundation("reveal", {
+				// animationSpeed: 300,
+				opened: function() {
+					that._focusTabbable();
+					that._trigger("focus");
+				},
+				closed: function() {
+					that._trigger( "close", this._currentEvent );
+					that.uiDialog.remove();
+				}
+			});
+
+			this.uiDialogTitlebarClose.remove();
+			// this._setOptions({
+			// 	left: 'auto',
+			// 	backgroundColor: 'red'
+			// });
+			this.uiDialog
+				// .removeClass()
+				.addClass("reveal-modal")
+				.css({
+					left: '50%',
+					marginLeft: '-250px'
+				})
+				.append('<a class="close-reveal-modal">&#215;</a>')
+				.foundation("reveal", "open");
+
+			this._trigger("open");
+		},
+
+		close: function( event ) {
+			var that = this;
+
+			if ( !this._isOpen || this._trigger( "beforeClose", event ) === false ) {
+				return;
+			}
+
+			this._isOpen = false;
+			this._currentEvent = event;
+
+			if ( !this.opener.filter(":focusable").focus().length ) {
+				// Hiding a focused element doesn't trigger blur in WebKit
+				// so in case we have nothing to focus on, explicitly blur the active element
+				// https://bugs.webkit.org/show_bug.cgi?id=47182
+				$( this.document[0].activeElement ).blur();
+			}
+
+			this.uiDialog.foundation("reveal", "close");
+		}
+
+	});
+
+	$.widget( "ui.gallery_dialog", $.ui.gallery_dialog, {
+		options: {
+			closeOnEscape: true,
+			draggable: true
+		}
+	});
+
 })(jQuery);
 
 $(document).ready(function() {

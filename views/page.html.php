@@ -36,6 +36,7 @@
 		var MSG_CANCEL = <?= t('Cancel')->for_js() ?>;
 		</script>
 		<?= $theme->script("gallery.ajax.js") ?>
+		<?= $theme->script("gallery.dialog.js") ?>
 		<?= $theme->script("jquery.localscroll.js") ?>
 
 		<? /* These are page specific but they get combined */ ?>
@@ -111,9 +112,6 @@
 		<div id="bd" class="row">
 			<div class="large-9 columns">
 				<div id="g-content">
-					<ul class="g-message-block" id="g-action-status">
-						<li class="g-success">Album Bilder 23 gespeichert</li>
-					</ul>
 					<?= $theme->messages() ?>
 					<?= $content ?>
 				</div>
@@ -152,7 +150,6 @@
 		<?= $theme->script("foundation/foundation.dropdown.js", "body") ?>
 		<?= $theme->script("foundation/foundation.reveal.js", "body") ?>
 		<?= $theme->script("foundation/foundation.topbar.js", "body") ?>
-		<?= $theme->script("gallery.dialog.js", "body") ?>
 		<?= $theme->get_combined("script", "body") ?>
 		<script>
 			$(document).foundation();

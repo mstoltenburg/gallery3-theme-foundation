@@ -1,6 +1,44 @@
-$topbar-margin-bottom: 0;
+// This includes all of the foundation global elements that are needed to work with any of the other files.
+@import "foundation/variables";
 
-$f-dropdown-list-hover-bg: #e0e0e0; // lighten(#2BA6CB, 42%);
+
+// theme config
+$primary-color: #2ba6cb;
+$topbar-margin-bottom: 0;
+$f-dropdown-list-hover-color: #fff;
+$f-dropdown-list-hover-bg: $primary-color;
+$reveal-modal-padding: 0;
+$reveal-close-color: #fff;
+$reveal-close-top: emCalc(7);
+
+
+// Control whether or not CSS classes come through in the CSS files.
+$include-html-classes: true;
+$include-print-styles: true;
+// $include-html-global-classes: false;
+$include-html-inline-list-classes: false;
+// $include-html-type-classes: false;
+// $include-html-grid-classes: false;
+// $include-html-visibility-classes: false;
+// $include-html-button-classes: false;
+// $include-html-form-classes: false;
+$include-html-custom-form-classes: false;
+// $include-html-media-classes: false;
+$include-html-section-classes: false;
+$include-html-orbit-classes: false;
+// $include-html-reveal-classes: false;
+$include-html-joyride-classes: false;
+$include-html-clearing-classes: false;
+// $include-html-alert-classes: false;
+$include-html-nav-classes: false; // sub-nav, side-nav, pagination, breadcrumbs
+// $include-html-top-bar-classes: false;
+$include-html-label-classes: false;
+$include-html-panel-classes: false;
+$include-html-pricing-classes: false;
+$include-html-progress-classes: false;
+$include-html-magellan-classes: false;
+$include-html-tooltip-classes: false;
+
 
 // Foundation Framework
 @import "foundation";
@@ -8,6 +46,14 @@ $f-dropdown-list-hover-bg: #e0e0e0; // lighten(#2BA6CB, 42%);
 // fix topbar item direction
 .top-bar .left { float: $default-float !important; }
 .top-bar .right { float: $opposite-direction !important; }
+
+.f-dropdown {
+	li a {
+		&:hover,
+		&:focus { color: $f-dropdown-list-hover-color; }
+	}
+}
+
 
 // UI styles
 @import "ui.base";

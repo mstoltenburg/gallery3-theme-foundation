@@ -129,9 +129,10 @@ textarea {
 
 #g-dialog legend,
 #g-panel legend {
-	margin: 0 0 1em 0;
-	padding: 0;
-	color: $primary-color;
+	display: none;
+	// margin: 0 0 1em 0;
+	// padding: 0;
+	// color: $primary-color;
 }
 
 /* Short forms ~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -373,22 +374,34 @@ textarea {
 
 /* Permissions ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-#g-edit-permissions-form td {
+#g-permissions table {
+	width: 100%;
+}
+
+#g-permissions td {
 	background-image: none;
 }
 
 #g-permissions .g-denied {
-	background-color: #fcc;
+	background-color: lighten($alert-color, 50%);
 }
 
 #g-permissions .g-allowed {
-	background-color: #cfc;
+	background-color: lighten($success-color, 50%);
 }
 
 #g-permissions .g-breadcrumbs a {
+	color: $sub-nav-font-color;
+	text-decoration: $sub-nav-text-decoration;
 }
 
 #g-permissions .g-active a {
+	@include radius($sub-nav-border-radius);
+	font-weight: $sub-nav-active-font-weight;
+	background: $sub-nav-active-bg;
+	padding: $sub-nav-active-padding;
+	cursor: $sub-nav-active-cursor;
+	color: $sub-nav-active-color;
 }
 
 /** *******************************************************************
@@ -474,7 +487,6 @@ textarea {
 .g-error,
 .g-info,
 .g-success,
-.g-denied,
 .g-warning {
 	@include alert;
 	padding-left: 30px;
@@ -487,11 +499,7 @@ form li.g-info,
 form li.g-success,
 form li.g-warning {
 	background-image: none;
-	padding: 0;
-}
-
-.g-short-form li.g-error {
-	padding: .3em 0;
+	padding-left: $alert-padding-default-float;
 }
 
 form.g-error input[type="text"],
@@ -506,7 +514,7 @@ form.g-error textarea,
 li.g-error textarea,
 form.g-error select,
 li.g-error select {
-	border: 2px solid #f00;
+	border: 2px solid darken($alert-color, $alert-function-factor);
 	margin-bottom: .2em;
 }
 
@@ -519,7 +527,7 @@ tr.g-error td.g-error,
 }
 
 .g-info {
-	background-color: #e8e8e8;
+	@include alert-style($secondary-color);
 	background-image: url('../images/ico-info.png');
 }
 
@@ -540,7 +548,6 @@ tr.g-success td.g-success {
 
 .g-warning,
 tr.g-warning td.g-warning {
-	background-color: #fcf9ce;
 	background-image: url('../images/ico-warning.png');
 }
 
@@ -852,16 +859,18 @@ button,
 
 .g-paginator .g-info {
 	background: none;
+	border: 0;
+	// margin: 0;
 	padding: .2em 0;
 	text-align: center;
+	font-weight: inherit;
 }
 
 /* Dialogs and panels ~~~~~~~~~~~~~~~~~~ */
 
-#g-dialog {
-	ul {
-		margin: 0;
-	}
+#g-dialog ul {
+//	margin: 0;
+// not specific enough, see permissions
 }
 
 #g-dialog .g-cancel {
