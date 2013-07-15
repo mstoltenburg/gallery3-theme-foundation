@@ -12,7 +12,7 @@
 
 		// After the image is rotated or replaced we have to reload the image dimensions
 		// so that the full size view isn't distorted.
-		$("#g-photo").bind("gallery.change", function() {
+		$("#g-photo").on("gallery.change", function() {
 			$.ajax({
 				url: "<?= url::site("items/dimensions/" . $theme->item()->id) ?>",
 				dataType: "json",
@@ -25,27 +25,27 @@
 </script>
 <? endif ?>
 
-<div id="g-info">
-	<h1><?= html::purify($item->title) ?></h1>
-	<div><?= nl2br(html::purify($item->description)) ?></div>
-</div>
-
 <div id="g-item">
 	<?= $theme->photo_top() ?>
+
+	<?= $theme->paginator() ?>
 
 	<div id="g-photo">
 		<?= $theme->resize_top($item) ?>
 		<? if (access::can("view_full", $item)): ?>
 		<a href="<?= $item->file_url() ?>" class="g-fullsize-link" title="<?= t("View full size")->for_html_attr() ?>">
 			<? endif ?>
-			<?= $item->resize_img(array("id" => "g-item-id-{$item->id}", "class" => "g-resize")) ?>
+			<?= $item->resize_img(array("id" => "g-item-id-{$item->id}", "class" => "g-resize th")) ?>
 			<? if (access::can("view_full", $item)): ?>
 		</a>
 		<? endif ?>
 		<?= $theme->resize_bottom($item) ?>
 	</div>
 
-	<?= $theme->paginator() ?>
+	<div id="g-info">
+		<h1><?= html::purify($item->title) ?></h1>
+		<p><?= nl2br(html::purify($item->description)) ?></p>
+	</div>
 
 	<?= $theme->photo_bottom() ?>
 </div>

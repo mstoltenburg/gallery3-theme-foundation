@@ -1,6 +1,21 @@
 // This includes all of the foundation global elements that are needed to work with any of the other files.
 @import "foundation/variables";
 
+// We use these to control text direction settings
+$text-direction: ltr !default;
+
+// text direction variables
+$arrow-first: "\21E4";
+$arrow-prev:  "\2190";
+$arrow-next:  "\2192";
+$arrow-last:  "\21E5";
+
+@if $text-direction == rtl {
+	$arrow-first: "\21E5";
+	$arrow-prev:  "\2192";
+	$arrow-next:  "\2190";
+	$arrow-last:  "\21E4";
+}
 
 // theme config
 $primary-color: #2ba6cb;
@@ -10,6 +25,9 @@ $f-dropdown-list-hover-bg: $primary-color;
 // $reveal-close-top: emCalc(7);
 $alert-close-position: emCalc(7);
 $legend-bg: transparent;
+$tooltip-bg: rgba(#000, .6);
+$tooltip-font-size: emCalc(13);
+$tooltip-font-weight: normal;
 
 
 // $topbar-bg: $primary-color;
@@ -33,7 +51,7 @@ $include-html-inline-list-classes: false;
 // $include-html-button-classes: false;
 // $include-html-form-classes: false;
 $include-html-custom-form-classes: false;
-// $include-html-media-classes: false;
+// $include-html-media-classes: false; // flex-video, progress-bar, thumbs
 $include-html-section-classes: false;
 $include-html-orbit-classes: false;
 // $include-html-reveal-classes: false;

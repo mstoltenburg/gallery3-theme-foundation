@@ -30,16 +30,16 @@
   <li class="g-first small-6 large-4 columns">
   <? if ($page_type == "collection"): ?>
     <? if (isset($first_page_url)): ?>
-      <a href="<?= $first_page_url ?>" class="button small radius secondary">&#8676; <span class="xxx"><?= t("First") ?></span></a>
+      <a href="<?= $first_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-first"><?= t("First") ?></span></a>
     <? else: ?>
-      <a class="button small radius secondary disabled">&#8676; <span class="xxx"><?= t("First") ?></span></a>
+      <a class="button small radius secondary disabled"><span class="ui-icon-seek-first"><?= t("First") ?></span></a>
     <? endif ?>
   <? endif ?>
 
   <? if (isset($previous_page_url)): ?>
-    <a href="<?= $previous_page_url ?>" class="button small radius secondary">&larr; <span class="xxx"><?= t("Previous") ?></span></a>
+    <a href="<?= $previous_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-prev"><?= t("Previous") ?></span></a>
   <? else: ?>
-    <a class="button small radius secondary disabled">&larr; <span class="xxx"><?= t("Previous") ?></span></a>
+    <a class="button small radius secondary disabled"><span class="ui-icon-seek-prev"><?= t("Previous") ?></span></a>
   <? endif ?>
   </li>
 
@@ -63,16 +63,16 @@
 
   <li class="g-text-right small-6 large-4 columns">
   <? if (isset($next_page_url)): ?>
-    <a href="<?= $next_page_url ?>" class="button small radius secondary"><span class="xxx"><?= t("Next") ?></span> &rarr;</a>
+    <a href="<?= $next_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-next"><?= t("Next") ?></span></a>
   <? else: ?>
-    <a class="button small radius secondary disabled"><span class="xxx"><?= t("Next") ?></span> &rarr;</a>
+    <a class="button small radius secondary disabled"><span class="ui-icon-seek-next"><?= t("Next") ?></span></a>
   <? endif ?>
 
   <? if ($page_type == "collection"): ?>
     <? if (isset($last_page_url)): ?>
-      <a href="<?= $last_page_url ?>" class="button small radius secondary"><span class="xxx"><?= t("Last") ?></span> &#8677;</a>
+      <a href="<?= $last_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-end"><?= t("Last") ?></span></a>
     <? else: ?>
-      <a class="button small radius secondary disabled"><span class="xxx"><?= t("Last") ?></span> &#8677;</a>
+      <a class="button small radius secondary disabled"><span class="ui-icon-seek-end"><?= t("Last") ?></span></a>
     <? endif ?>
   <? endif ?>
   </li>

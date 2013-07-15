@@ -125,8 +125,6 @@
 			</div>
 		</div>
 
-		<div id="widget" class="reveal-modal"></div>
-
 		<footer id="g-footer" class="row">
 			 <div class="large-12 columns">
 				<hr>
@@ -139,7 +137,7 @@
 					</div>
 					<div class="large-6 columns">
 						<? if (module::get_var("gallery", "show_credits")): ?>
-						<ul id="g-credits" class="right">
+						<ul id="g-credits" class="g-text-right">
 							<?= $theme->credits() ?>
 						</ul>
 						<? endif ?>

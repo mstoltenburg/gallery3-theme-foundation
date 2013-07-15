@@ -295,7 +295,6 @@ textarea {
 }
 
 #g-album-grid .g-item a.th {
-	@include thumb;
 	position: relative;
 	width: 100%;
 	text-align: center;
@@ -346,7 +345,7 @@ textarea {
 #g-album-grid .g-album span.g-album {
 	&:before {
 		content: "\2637";
-		margin-right: .5em;
+		margin-#{$opposite-direction}: .5em;
 	}
 }
 
@@ -383,12 +382,6 @@ textarea {
 #g-item {
 	position: relative;
 	width: 100%;
-}
-
-#g-item #g-photo,
-#g-item #g-movie {
-	padding: 2.2em 0;
-	position: relative;
 }
 
 #g-item img.g-resize,
@@ -529,7 +522,7 @@ textarea {
 
 	&:before {
 		font-family: AppleSymbols, "Apple Symbols", $body-font-family;
-		margin-right: .5em;
+		margin-#{$opposite-direction}: .5em;
 		line-height: 0;
 	}
 	// padding-left: 30px;
@@ -541,8 +534,13 @@ form li.g-error,
 form li.g-info,
 form li.g-success,
 form li.g-warning {
-	// background-image: none;
-	// padding-left: $alert-padding-default-float;
+	background-color: inherit;
+	border: 0;
+	padding: 0;
+
+	&:before {
+		content: none;
+	}
 }
 
 form.g-error input[type="text"],
@@ -557,14 +555,23 @@ form.g-error textarea,
 li.g-error textarea,
 form.g-error select,
 li.g-error select {
-	border: 2px solid darken($alert-color, $alert-function-factor);
+	border: 2px solid $alert-color;
 	margin-bottom: .2em;
 }
 
 .g-error {
 	@include alert-style($alert-color);
 	&:before {
-		content: "\2718";
+		content: "!"; // 2718 26D4
+		margin-#{$default-float}: .25em;
+	}
+
+	.g-error {
+		border: 0;
+		padding-left: 0;
+		padding-right: 0;
+		color: $alert-color;
+		background-color: inherit;
 	}
 }
 
@@ -600,11 +607,6 @@ td.g-success {
 
 td.g-warning {
 	&:before { color: $primary-color; }
-}
-
-form .g-error {
-	background-color: inherit;
-	padding-left: 20px;
 }
 
 .g-open {
@@ -655,12 +657,12 @@ form .g-error {
 
 .g-left {
 	clear: none;
-	float: left;
+	float: $default-float;
 }
 
 .g-right {
 	clear: none;
-	float: right;
+	float: $opposite-direction;
 }
 
 .g-first {
@@ -731,6 +733,7 @@ form .g-error {
 #g-view-menu a {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	background-size: auto 1.5em;
 	overflow: hidden;
 	text-indent: -99999px;
 	display: block;
@@ -861,6 +864,34 @@ button,
 	}
 }
 
+.ui-icon-seek-first {
+	&:before {
+		content: $arrow-first;
+		margin-#{$opposite-direction}: .375em;
+	}
+}
+
+.ui-icon-seek-prev {
+	&:before {
+		content: $arrow-prev;
+		margin-#{$opposite-direction}: .375em;
+	}
+}
+
+.ui-icon-seek-next {
+	&:after {
+		content: $arrow-next;
+		margin-#{$default-float}: .375em;
+	}
+}
+
+.ui-icon-seek-end {
+	&:after {
+		content: $arrow-last;
+		margin-#{$default-float}: .375em;
+	}
+}
+
 .g-progress-bar {
 	height: 1em;
 	width: 100%;
@@ -959,11 +990,6 @@ button,
 #g-action-status li {
 	opacity: 0;
 
-	// -webkit-transform: scaleX(0);
-	// 		transform: scaleX(0);
-	// -webkit-transform-origin: bottom;
-	// 		transform-origin: bottom;
-
 	-webkit-transition-property: opacity, -webkit-transform;
 			transition-property: opacity, transform;
 	-webkit-transition-duration: .5s;
@@ -974,13 +1000,11 @@ button,
 	&.visible {
 		opacity: 1;
 
-		// -webkit-transform: scaleX(1);
-		// 		transform: scaleX(1);
 		-webkit-transition-duration: 2.5s;
 				transition-duration: 2.5s;
 	}
 }
-
+/*
 #g-add-photos-canvas,
 #g-add-photos-status {
 	border: $input-border-width $input-border-style $input-border-color;
@@ -1000,4 +1024,36 @@ button,
 	width: auto;
 	float: none;
 	padding-top: $alert-padding-top;
+}
+*/
+#g-user-profile h1 {
+	margin-top: $header-top-margin;
+	margin-bottom: $header-bottom-margin;
+}
+
+.g-avatar {
+	overflow: hidden;
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+@for $i from -4 through 3 {
+	@if $i < 0 {
+		#g-tag-cloud ul li.size#{$i+4} a {
+			color: lighten($primary-color, 0% - ($i * 8%));
+		}
+	} @else if $i > 0 {
+		#g-tag-cloud ul li.size#{$i+4} a {
+			color: darken($primary-color, 0% + ($i * 8%));
+		}
+	} @else {
+		#g-tag-cloud ul li.size#{$i+4} a {
+			color: $primary-color;
+		}
+	}
+}
+
+#g-tag-cloud ul li a:hover {
+	color: $anchor-font-color-hover;
+	text-decoration: none;
 }
