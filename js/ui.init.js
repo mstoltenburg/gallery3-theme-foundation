@@ -7,15 +7,23 @@
 
 	// Override gallery function
 	$.fn.gallery_show_message = function() {
-		return this.each(function(i){
-			$(this).hide().append('<a href="#" class="close">&times;</a>').on("click", ".close", function(event) {
+		this.append('<a href="#" class="close">&times;</a>')
+			.addClass("visible")
+			.on("click", ".close", function(event) {
 				event.preventDefault();
-				$(this).parent().fadeOut(300, function () {
-					$(this).parent().remove();
-					// $(this).parent().slideUp(500);
-				});
-			}).fadeIn(1000);
-		});
+				$(event.delegateTarget)
+					.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function(event) {
+						var parent = $(this).parent();
+						$(this).slideUp(250, function(){
+
+							if (!parent.children(":visible").length) {
+								parent.remove();
+							}
+						});
+
+					})
+					.removeClass("visible");
+			});
 	};
 
 	$.widget( "ui.dialog", $.ui.dialog, {
@@ -59,8 +67,9 @@
 				// .removeClass()
 				.addClass("reveal-modal")
 				.css({
+					top: '100px',
 					left: '50%',
-					marginLeft: '-250px'
+					width: ''
 				})
 				.append('<a class="close-reveal-modal">&#215;</a>')
 				.foundation("reveal", "open");
@@ -93,8 +102,36 @@
 	$.widget( "ui.gallery_dialog", $.ui.gallery_dialog, {
 		options: {
 			closeOnEscape: true,
-			draggable: true
-		}
+			draggable: true,
+			minHeight: 100
+		},
+
+		_layout: function() {
+			var galleryDialog = $("#g-dialog");
+			var dialogClass;
+			var dialogHeight = galleryDialog.height();
+			var childWidth = $("#g-dialog form").width();
+			var size = $.gallery_get_viewport_size();
+
+			// console.log(size.width(), window.innerWidth);
+			// console.log(size.height(), window.innerHeight);
+
+			if ($("#g-dialog iframe").length) {
+				dialogClass = "xlarge";
+				// Set the iframe width and height
+				$("#g-dialog iframe").width("96%").height(size.height() - 240);
+			} else if ($("#g-dialog .g-dialog-panel").length) {
+				dialogClass = "xlarge";
+				galleryDialog.height(size.height() - 100);
+			} else if (childWidth <= 150 || childWidth > 300) {
+				dialogClass = "medium";
+			} else {
+				dialogClass = "small";
+			}
+
+			galleryDialog.dialog("option", "dialogClass", dialogClass);
+			// galleryDialog.addClass(dialogClass);
+		},
 	});
 
 })(jQuery);

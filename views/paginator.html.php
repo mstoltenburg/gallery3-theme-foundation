@@ -43,7 +43,7 @@
   <? endif ?>
   </li>
 
-  <li class="g-info hide-for-small large-4 columns">
+  <li class="g-pagination-text hide-for-small large-4 columns">
     <? if ($total): ?>
       <? if ($page_type == "collection"): ?>
         <?= /* @todo This message isn't easily localizable */

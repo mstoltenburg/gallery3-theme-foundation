@@ -467,32 +467,24 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-dialog {
 	position: absolute;
-	padding: 0;
 	top: 0;
 	left: 0;
 	outline: 0;
 }
 .ui-dialog .ui-dialog-titlebar {
-	@include alert;
 	font-size: inherit;
-	line-height: 1.4;
-	padding-left: emCalc(20);
-	padding-right: emCalc(20);
-	margin: 0;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	font-weight: normal;
+	line-height: 1.1;
 	position: relative;
+	margin: 0 0 1em 0;
 }
 .ui-dialog .ui-dialog-title {
 	float: left;
-//	margin: 0 0 1em 0;
 	white-space: nowrap;
 	width: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-//	color: $primary-color;
-//	font-weight: bold;
+	color: $primary-color;
+	font-weight: bold;
 }
 .ui-dialog .ui-dialog-titlebar-close {
 	position: absolute;
@@ -506,7 +498,6 @@ button.ui-button::-moz-focus-inner {
 .ui-dialog .ui-dialog-content {
 	position: relative;
 	overflow: auto;
-	padding: emCalc(20);
 }
 .ui-dialog .ui-dialog-buttonpane {
 	text-align: left;

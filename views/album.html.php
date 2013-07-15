@@ -18,18 +18,17 @@
 		<? endif ?>
 	<li id="g-item-id-<?= $child->id ?>" class="g-item <?= $item_class ?>">
 		<?= $theme->thumb_top($child) ?>
-		<a href="<?= $child->url() ?>">
+		<a href="<?= $child->url() ?>" class="th">
 			<? if ($child->has_thumb()): ?>
 			<?= $child->thumb_img(array("class" => "g-thumbnail")) ?>
 			<? endif ?>
+			<h2 class="g-caption"><span class="<?= $item_class ?>"><?= html::purify($child->title) ?></span></h2>
+			<ul class="g-caption g-metadata">
+				<?= $theme->thumb_info($child) ?>
+			</ul>
 		</a>
 		<?= $theme->thumb_bottom($child) ?>
 		<?= $theme->context_menu($child, "#g-item-id-{$child->id} .g-thumbnail") ?>
-		<h2><span class="<?= $item_class ?>"></span>
-			<a href="<?= $child->url() ?>"><?= html::purify($child->title) ?></a></h2>
-		<ul class="g-metadata">
-			<?= $theme->thumb_info($child) ?>
-		</ul>
 	</li>
 	<? endforeach ?>
 <? else: ?>

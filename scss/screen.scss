@@ -4,12 +4,22 @@
 
 // theme config
 $primary-color: #2ba6cb;
+$primary-color: #ff0000;
 $topbar-margin-bottom: 0;
 $f-dropdown-list-hover-color: #fff;
 $f-dropdown-list-hover-bg: $primary-color;
-$reveal-modal-padding: 0;
-$reveal-close-color: #fff;
-$reveal-close-top: emCalc(7);
+// $reveal-close-top: emCalc(7);
+$alert-close-position: emCalc(7);
+
+
+// $topbar-bg: $primary-color;
+// $topbar-dropdown-bg: lighten($primary-color, 20%);
+// $topbar-dropdown-link-color: $primary-color;
+// $topbar-dropdown-link-bg: #fff;
+$topbar-menu-link-color: #fff;
+$topbar-menu-icon-color: #fff;
+$topbar-menu-link-color-toggled: rgba($topbar-menu-link-color, .5);
+$topbar-menu-icon-color-toggled: rgba($topbar-menu-icon-color, .5);
 
 
 // Control whether or not CSS classes come through in the CSS files.
@@ -47,10 +57,93 @@ $include-html-tooltip-classes: false;
 .top-bar .left { float: $default-float !important; }
 .top-bar .right { float: $opposite-direction !important; }
 
+// extend dropdown hover styles
 .f-dropdown {
 	li a {
 		&:hover,
 		&:focus { color: $f-dropdown-list-hover-color; }
+	}
+}
+
+// fix for reveal
+.top-bar-section {
+	.dropdown {
+		z-index: 98;
+	}
+}
+
+
+$topbar-divider-border-top-color: nth($topbar-divider-border-top, 3);
+$topbar-divider-border-bottom-color: nth($topbar-divider-border-bottom, 3);
+
+.top-bar-section ul {
+	@if $experimental {
+		-webkit-box-shadow: 0 -1px 0 0 $topbar-divider-border-top-color;
+	}
+	box-shadow: 0 -1px 0 0 $topbar-divider-border-top-color;
+	border-top: $topbar-divider-border-bottom;
+	margin-top: 1px;
+
+	li {
+		border-top: $topbar-divider-border-bottom;
+		border-bottom: $topbar-divider-border-top;
+
+		&:first-child {
+			border-top: none;
+		}
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+// Top Bar styles intended for screen sizes above the breakpoint.
+@media #{$topbar-media-query} {
+	.top-bar-section > ul {
+		@if $experimental {
+			-webkit-box-shadow: 1px 0 0 0 $topbar-divider-border-bottom-color;
+		}
+		box-shadow: 1px 0 0 0 $topbar-divider-border-bottom-color;
+		border-top: none;
+		border-#{$opposite-direction}: $topbar-divider-border-top;
+		margin-top: 0;
+
+		& > li {
+			border-top: none;
+			border-bottom: none;
+			border-#{$default-float}: $topbar-divider-border-bottom;
+
+			@if $experimental {
+				-webkit-box-shadow: -1px 0 0 0 $topbar-divider-border-top-color;
+			}
+			box-shadow: -1px 0 0 0 $topbar-divider-border-top-color;
+		}
+	}
+
+	.top-bar-section ul {
+		border-top: none;
+		margin-top: 0;
+
+		li {
+			border-top: none;
+			border-bottom: none;
+		}
+
+		ul {
+			box-shadow: none;
+		}
+	}
+}
+
+
+// set custom modal sizes
+@media #{$small} {
+	.#{$reveal-modal-class} {
+		&.tiny  { @include reveal-modal-base(false, 30%); }
+		&.small { @include reveal-modal-base(false, 300px); }
+		&.medium  { @include reveal-modal-base(false, 500px); }
+		&.large { @include reveal-modal-base(false, 70%); }
+		&.xlarge { @include reveal-modal-base(false, 95%); }
 	}
 }
 
