@@ -825,12 +825,40 @@ button,
 
 /* Rotate icon, ThemeRoller only provides one of these */
 
+.ui-icon-pencil {
+	&:before {
+		content: "\270E";
+	}
+}
+
 .ui-icon-rotate-ccw {
-	background-position: -192px -64px;
+	&:before {
+		content: "\21BA";
+	}
 }
 
 .ui-icon-rotate-cw {
-	background-position: -208px -64px;
+	&:before {
+		content: "\21BB";
+	}
+}
+
+.ui-icon-star {
+	&:before {
+		content: "\2605";
+	}
+}
+
+.ui-icon-trash {
+	&:before {
+		content: "\2715";
+	}
+}
+
+.ui-icon-folder-open {
+	&:before {
+		content: "\21B6";
+	}
 }
 
 .g-progress-bar {

@@ -155,6 +155,8 @@ $(document).ready(function() {
 		// $("#g-view-menu a").addClass("ui-icon");
 	}
 
+	$("#g-view-menu a").addClass("has-tip").attr({"data-tooltip":true});
+
 /*
 	// Apply jQuery UI icon and hover styles to context menus
 	if ($(".g-context-menu").length) {

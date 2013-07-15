@@ -151,6 +151,7 @@
 		<?= $theme->script("foundation/foundation.js", "body") ?>
 		<?= $theme->script("foundation/foundation.dropdown.js", "body") ?>
 		<?= $theme->script("foundation/foundation.reveal.js", "body") ?>
+		<?= $theme->script("foundation/foundation.tooltips.js", "body") ?>
 		<?= $theme->script("foundation/foundation.topbar.js", "body") ?>
 		<?= $theme->get_combined("script", "body") ?>
 		<script>

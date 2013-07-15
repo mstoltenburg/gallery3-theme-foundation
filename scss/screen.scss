@@ -47,7 +47,7 @@ $include-html-panel-classes: false;
 $include-html-pricing-classes: false;
 $include-html-progress-classes: false;
 $include-html-magellan-classes: false;
-$include-html-tooltip-classes: false;
+// $include-html-tooltip-classes: false;
 
 
 // Foundation Framework
@@ -60,6 +60,9 @@ $include-html-tooltip-classes: false;
 // extend dropdown hover styles
 .f-dropdown {
 	li a {
+		text-indent: -0.8571em;
+		padding-#{$default-float}: 0.8571em + nth($f-dropdown-list-padding, 2);
+
 		&:hover,
 		&:focus { color: $f-dropdown-list-hover-color; }
 	}
