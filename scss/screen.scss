@@ -4,16 +4,16 @@
 
 // theme config
 $primary-color: #2ba6cb;
-$primary-color: #ff0000;
 $topbar-margin-bottom: 0;
 $f-dropdown-list-hover-color: #fff;
 $f-dropdown-list-hover-bg: $primary-color;
 // $reveal-close-top: emCalc(7);
 $alert-close-position: emCalc(7);
+$legend-bg: transparent;
 
 
 // $topbar-bg: $primary-color;
-// $topbar-dropdown-bg: lighten($primary-color, 20%);
+// $topbar-dropdown-bg: lighten($topbar-bg, 10%);
 // $topbar-dropdown-link-color: $primary-color;
 // $topbar-dropdown-link-bg: #fff;
 $topbar-menu-link-color: #fff;
@@ -133,6 +133,11 @@ $topbar-divider-border-bottom-color: nth($topbar-divider-border-bottom, 3);
 			box-shadow: none;
 		}
 	}
+}
+
+// extent button-group
+.button-group.even-1 li {
+	@include button-group-style($even:1, $float:null);
 }
 
 

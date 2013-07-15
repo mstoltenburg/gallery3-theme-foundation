@@ -89,8 +89,8 @@
 		</div>
 
 		<div id="g-header" class="row">
-			<? if (!empty($breadcrumbs)): ?>
 			<ul class="g-breadcrumbs">
+			<? if (!empty($breadcrumbs)): ?>
 				<? foreach ($breadcrumbs as $breadcrumb): ?>
 					<?= $breadcrumb->last ? '<li class="current">' : "<li>" ?>
 					<? if (!$breadcrumb->last): ?> <a href="<?= $breadcrumb->url ?>"><? endif ?>
@@ -98,8 +98,10 @@
 					<? if (!$breadcrumb->last): ?></a><? endif ?>
 				 </li>
 				<? endforeach ?>
-			</ul>
+			<? else: ?>
+				 
 			<? endif ?>
+			</ul>
 <!--
  				<?= $theme->header_top() ?>
 				<?= $theme->header_bottom() ?>

@@ -151,8 +151,8 @@ $(document).ready(function() {
 	// Apply jQuery UI icon, hover, and rounded corner styles
 	// $("input[type=submit]:not(.g-short-form input)").addClass("ui-state-default ui-corner-all");
 	if ($("#g-view-menu").length) {
-		$("#g-view-menu ul").removeClass("g-menu").removeClass("sf-menu");
-		$("#g-view-menu a").addClass("ui-icon");
+		// $("#g-view-menu ul").removeClass("g-menu").removeClass("sf-menu");
+		// $("#g-view-menu a").addClass("ui-icon");
 	}
 
 /*

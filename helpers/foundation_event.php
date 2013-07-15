@@ -23,6 +23,28 @@ class foundation_event_Core {
 	const TEMPLATE_DROPDOWN = 'dropdown.html';
 	const TEMPLATE_TOPBAR   = 'topbar.html';
 
+	const CLASS_VIEW_MENU   = 'button secondary';
+
+	static function album_menu($menu, $theme)
+	{
+		self::_addMenuClassRecursive($menu, self::CLASS_VIEW_MENU);
+	}
+
+	static function photo_menu($menu, $theme)
+	{
+		self::_addMenuClassRecursive($menu, self::CLASS_VIEW_MENU);
+	}
+
+	static function movie_menu($menu, $theme)
+	{
+		self::_addMenuClassRecursive($menu, self::CLASS_VIEW_MENU);
+	}
+
+	static function tag_menu($menu, $theme)
+	{
+		self::_addMenuClassRecursive($menu, self::CLASS_VIEW_MENU);
+	}
+
 	static function context_menu($menu, $theme, $item, $thumb_css_selector)
 	{
 		$menu->view('dropdown.html')->css_class('context-menu-dropdown');
@@ -72,6 +94,20 @@ class foundation_event_Core {
 				}
 
 				self::_changeMenuRecursive($element, $view);
+			}
+		}
+	}
+
+	private static function _addMenuClassRecursive($menu, $class)
+	{
+		$menu->css_class('button-group radius even-' . count($menu->elements));
+
+		foreach ($menu->elements as $element) {
+			if ($element instanceof Menu) {
+				self::_changeMenuRecursive($element, $class);
+			}
+			else {
+				$element->css_class(trim("{$element->css_class} $class"));
 			}
 		}
 	}

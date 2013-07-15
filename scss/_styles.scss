@@ -317,8 +317,8 @@ textarea {
 	background: $orbit-caption-bg;
 	opacity: 0;
 	max-height: 0;
-	-webkit-transition: opacity .2s, max-height .3s linear;
-			transition: opacity .2s, max-height .3s linear;
+	-webkit-transition: opacity .3s, max-height .3s linear;
+			transition: opacity .3s, max-height .3s linear;
 }
 
 #g-album-grid .g-item h2 {
@@ -371,6 +371,14 @@ textarea {
 }
 
 /* Individual photo content ~~~~~~~~~~~~~~ */
+
+#g-info {
+	h1 {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
 
 #g-item {
 	position: relative;
@@ -718,14 +726,14 @@ form .g-error {
 /* View Menu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #g-view-menu {
-	margin-bottom: 1em;
 }
 
 #g-view-menu a {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	height: 28px !important;
-	width: 43px !important;
+	overflow: hidden;
+	text-indent: -99999px;
+	display: block;
 }
 
 #g-view-menu #g-slideshow-link {
