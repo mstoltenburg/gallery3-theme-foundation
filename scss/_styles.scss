@@ -525,11 +525,9 @@ textarea {
 		margin-#{$opposite-direction}: .5em;
 		line-height: 0;
 	}
-	// padding-left: 30px;
-	background-repeat: no-repeat;
-	background-position: .4em 50%;
 }
 
+/* this breaks the file upload messages
 form li.g-error,
 form li.g-info,
 form li.g-success,
@@ -542,6 +540,7 @@ form li.g-warning {
 		content: none;
 	}
 }
+*/
 
 form.g-error input[type="text"],
 li.g-error input[type="text"],
@@ -904,7 +903,6 @@ button,
 #g-site-status,
 .g-message-block {
 	background-position: .4em .3em;
-	// border: 1px solid #ccc;
 	padding: 0;
 	line-height: inherit;
 
@@ -970,7 +968,11 @@ button,
 
 #g-dialog #g-action-status {
 	margin: 0;
-	opacity: 1;
+
+	li {
+		margin-bottom: 1px;
+		opacity: 1;
+	}
 }
 
 /* Inline layout ~~~~~~~~~~ */
@@ -1004,7 +1006,7 @@ button,
 				transition-duration: 2.5s;
 	}
 }
-/*
+
 #g-add-photos-canvas,
 #g-add-photos-status {
 	border: $input-border-width $input-border-style $input-border-color;
@@ -1025,7 +1027,7 @@ button,
 	float: none;
 	padding-top: $alert-padding-top;
 }
-*/
+
 #g-user-profile h1 {
 	margin-top: $header-top-margin;
 	margin-bottom: $header-bottom-margin;
