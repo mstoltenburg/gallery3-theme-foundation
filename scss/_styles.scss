@@ -22,8 +22,11 @@
 	font-size: 1.1em;
 }
 
-.g-message {
-	font-size: .8em;
+#g-sidebar .g-block h2 {
+	font-size: 1em;
+}
+
+#g-sidebar .g-block li {
 }
 
 ul li {
@@ -75,11 +78,13 @@ ol.g-text li,
 	margin-left: 1em;
 }
 
-/* Form layout ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Forms ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 form {
 	margin: 0;
 }
+
+/* Form layout ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 form li {
 	margin: 0;
@@ -97,22 +102,19 @@ form ul ul {
 
 form ul ul li {
 	float: left;
-	margin-right: .75em;
+	// @todo: this was just for edit album - solve different
+	//	margin-right: .75em;
 }
 
 textarea {
 	min-height: 8em;
 }
 
-#g-login-form,
-#g-add-user-form
-#g-edit-user-form,
-#g-delete-user-form,
-#g-user-admin {
+/* Forms in dialogs and panels ~~~~~~~~~ */
+
+#g-dialog form {
 	width: auto;
 }
-
-/* Forms in dialogs and panels ~~~~~~~~~ */
 
 #g-dialog fieldset,
 #g-panel fieldset {
@@ -162,6 +164,11 @@ textarea {
 
 #g-content table {
 	margin: 1em 0;
+}
+
+caption,
+th {
+	text-align: left;
 }
 
 /* Text ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -257,13 +264,6 @@ textarea {
 }
 
 /* Sidebar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-#g-sidebar .g-block h2 {
-	font-size: 1em;
-}
-
-#g-sidebar .g-block li {
-}
 
 #g-sidebar .g-block-content {
 	font-size: emCalc(13);
@@ -900,9 +900,12 @@ button,
 
 /* Status and validation messages ~~~~ */
 
+#g-site-status {
+	margin: 0;
+}
+
 #g-site-status,
 .g-message-block {
-	background-position: .4em .3em;
 	padding: 0;
 	line-height: inherit;
 
