@@ -1,0 +1,42 @@
+//
+// Custom mixins
+//
+
+@mixin alert-style-extended($bg:$primary-color) {
+	@include alert-style($bg);
+	@include alert-style-links($bg);
+}
+
+@mixin alert-style-links($bg:$primary-color) {
+	$color: $alert-font-color;
+	$font-weight: bold;
+
+	// find the lightness percentage of the background color
+	$bg-lightness: lightness($bg);
+
+	// control the text color based on the background color
+	@if $bg-lightness > 70% { $color: $alert-font-color-alt; }
+
+	// control the link font weight based on the text font weight
+	@if $alert-font-weight != normal { $font-weight: normal; }
+
+	a:not(.close) {
+		color: transparentize($color, .3);
+		font-weight: $font-weight;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+@mixin alert-message-icon() {
+	font-family: AppleSymbols, "Apple Symbols", $body-font-family;
+	// use pixel because the icons  have different font sizes
+	// @todo: fix with e.g. transform: scale(1.5) instead of font-size but try to get the baseline right first
+	margin-#{$opposite-direction}: 6px;
+	min-width: 16px;
+	display: inline-block;
+	text-align: center;
+	line-height: 0;
+}

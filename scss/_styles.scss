@@ -116,6 +116,7 @@ textarea {
 	width: auto;
 }
 
+// @todo: fix issue with box-shadow of focused input elements - needs padding on fieldset
 #g-dialog fieldset,
 #g-panel fieldset {
 	border: none;
@@ -145,16 +146,15 @@ textarea {
 }
 
 .g-short-form .textbox.g-error {
-	border: 1px solid #f00;
-	color: #f00;
-	padding-left: 24px;
+	border: 2px solid $alert-color;
+	color: $alert-color;
 }
 
-.g-short-form .g-cancel {
-	display: block;
-	margin: 0em .8em;
-	padding: .3em .6em;
-}
+// .g-short-form .g-cancel {
+// 	display: block;
+// 	margin: 0em .8em;
+// 	padding: .3em .6em;
+// }
 
 #g-sidebar .g-short-form .textbox {
 	width: 100%;
@@ -513,7 +513,11 @@ th {
 	cursor: text;
 }
 
-.g-error,
+.g-error {
+	color: $alert-color;
+}
+
+.g-message-block .g-error,
 .g-info,
 .g-success,
 .g-warning {
@@ -521,75 +525,49 @@ th {
 	margin-bottom: emCalc(6);
 
 	&:before {
-		font-family: AppleSymbols, "Apple Symbols", $body-font-family;
-		margin-#{$opposite-direction}: .5em;
-		line-height: 0;
+		@include alert-message-icon();
 	}
 }
 
-/* this breaks the file upload messages
-form li.g-error,
-form li.g-info,
-form li.g-success,
-form li.g-warning {
-	background-color: inherit;
-	border: 0;
-	padding: 0;
+.g-error input,
+.g-error textarea,
+.g-error select {
+	border: 2px solid $alert-color;
+	margin-bottom: .25em;
+}
+
+p.g-error {
+	font-size: $alert-font-size;
 
 	&:before {
-		content: none;
+		content: "!";
+		@include alert-message-icon();
 	}
 }
-*/
 
-form.g-error input[type="text"],
-li.g-error input[type="text"],
-form.g-error input[type="password"],
-li.g-error input[type="password"],
-form.g-error input[type="checkbox"],
-li.g-error input[type="checkbox"],
-form.g-error input[type="radio"],
-li.g-error input[type="radio"],
-form.g-error textarea,
-li.g-error textarea,
-form.g-error select,
-li.g-error select {
-	border: 2px solid $alert-color;
-	margin-bottom: .2em;
-}
-
-.g-error {
-	@include alert-style($alert-color);
+.g-message-block .g-error {
+	@include alert-style-extended($alert-color);
 	&:before {
 		content: "!"; // 2718 26D4
-		margin-#{$default-float}: .25em;
-	}
-
-	.g-error {
-		border: 0;
-		padding-left: 0;
-		padding-right: 0;
-		color: $alert-color;
-		background-color: inherit;
 	}
 }
 
 .g-info {
-	@include alert-style($secondary-color);
+	@include alert-style-extended($secondary-color);
 	&:before {
 		content: "\24d8";
 	}
 }
 
 .g-success {
-	@include alert-style($success-color);
+	@include alert-style-extended($success-color);
 	&:before {
-		content: "\2713";
-		// content: "\2714";
+		content: "\2713"; // 2714
 	}
 }
 
 .g-warning {
+	@include alert-style-extended($primary-color);
 	&:before {
 		content: "\26A0";
 		font-size: 1.5em;
@@ -916,15 +894,14 @@ button,
 	margin-bottom: 1em;
 }
 
-.g-module-status {
-	clear: both;
-	margin-bottom: 1em;
+// .g-module-status {
+// 	clear: both;
+// 	margin-bottom: 1em;
 
-	.close { @include alert-close; }
-}
+// 	.close { @include alert-close; }
+// }
 
 .g-message {
-	background-position: 0 50%;
 }
 
 /* Breadcrumbs ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -969,6 +946,7 @@ button,
 	padding: 1em;
 }
 
+// this is for file upload?
 #g-dialog #g-action-status {
 	margin: 0;
 
@@ -1005,9 +983,13 @@ button,
 	&.visible {
 		opacity: 1;
 
-		-webkit-transition-duration: 2.5s;
-				transition-duration: 2.5s;
+		-webkit-transition-duration: 2s;
+				transition-duration: 2s;
 	}
+}
+
+#g-add-photos-form p {
+	margin-bottom: .5em;
 }
 
 #g-add-photos-canvas,
