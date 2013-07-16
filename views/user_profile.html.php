@@ -17,14 +17,14 @@
 		</a>
 		<? endif ?>
 		<? if ($editable): ?>
-		<a class="button secondary radius g-dialog-link" href="<?= url::site("users/form_change_email/{$user->id}") ?>">
-			<?= t("Change email") ?>
+		<a class="button secondary radius g-dialog-link" href="<?= url::site("form/edit/users/{$user->id}") ?>">
+			<?= t("Edit") ?>
 		</a>
 		<a class="button secondary radius g-dialog-link" href="<?= url::site("users/form_change_password/{$user->id}") ?>">
 			<?= t("Change password") ?>
 		</a>
-		<a class="button secondary radius g-dialog-link" href="<?= url::site("form/edit/users/{$user->id}") ?>">
-			<?= t("Edit") ?>
+		<a class="button secondary radius g-dialog-link" href="<?= url::site("users/form_change_email/{$user->id}") ?>">
+			<?= t("Change email") ?>
 		</a>
 		<? endif ?>
 	</div>
