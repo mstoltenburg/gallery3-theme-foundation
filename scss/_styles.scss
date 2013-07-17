@@ -350,19 +350,6 @@ th {
 	}
 }
 
-#g-album-grid .g-hover-item {
-}
-
-#g-content .g-hover-item h2,
-#g-content .g-hover-item .g-metadata {
-}
-
-#g-album-grid #g-place-holder {
-	position: relative;
-	visibility: hidden;
-	z-index: 1;
-}
-
 /* Search results ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #g-content #g-search-results {
@@ -689,18 +676,6 @@ td.g-warning {
 .g-context-menu li a {
 	display: block;
 	line-height: 1.6em;
-}
-
-.g-hover-item .g-context-menu {
-	display: block;
-}
-
-.g-hover-item .g-context-menu li {
-	text-align: $default-float;
-}
-
-.g-hover-item .g-context-menu a:hover {
-	text-decoration: none;
 }
 
 /* View Menu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
