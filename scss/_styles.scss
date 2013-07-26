@@ -47,8 +47,6 @@ ul li {
 	}
 }
 
-fieldset legend:empty { display: none; }
-
 /* Links ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 // a:hover {
@@ -96,14 +94,20 @@ form ul {
 	margin: 0;
 }
 
-form ul ul {
-	clear: both;
-}
+// form ul ul {
+// 	clear: both;
+// }
 
-form ul ul li {
-	float: left;
-	// @todo: this was just for edit album - solve different
-	//	margin-right: .75em;
+// form ul ul li {
+// 	float: left;
+// 	@todo: this was just for edit album - solve different
+// 	margin-right: .75em;
+// }
+
+fieldset legend {
+	color: $primary-color;
+
+	&:empty { display: none; }
 }
 
 textarea {
@@ -117,12 +121,11 @@ textarea {
 	width: auto;
 }
 
-// @todo: fix issue with box-shadow of focused input elements - needs padding on fieldset
-#g-dialog fieldset,
-#g-panel fieldset {
-	border: none;
-	margin: 0;
-	padding: 0;
+#g-dialog form > fieldset,
+#g-panel form > fieldset {
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 #g-dialog legend,
@@ -897,6 +900,7 @@ button,
 
 .g-breadcrumbs {
 	@include crumb-container;
+	margin-bottom: emCalc(20);
 }
 
 .g-breadcrumbs li {
@@ -1034,4 +1038,8 @@ button,
 #g-tag-cloud ul li a:hover {
 	color: $anchor-font-color-hover;
 	text-decoration: none;
+}
+
+#g-add-photos-form .g-breadcrumbs {
+	margin-bottom: emCalc(20);
 }
