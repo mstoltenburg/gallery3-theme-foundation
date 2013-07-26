@@ -240,6 +240,10 @@ th {
 #g-sidebar {
 }
 
+#g-photo {
+	margin-bottom: emCalc(20);
+}
+
 #g-footer p,
 #g-footer ul {
 	font-size: 0.8125em;
@@ -747,7 +751,7 @@ input.submit,
 button,
 .g-button {
 	@include button($button-sml, $primary-color, $global-radius);
-	@include single-transition;
+	@include single-transition();
 	@include inset-shadow();
 	cursor: pointer;
 	// outline: 0;
@@ -845,12 +849,21 @@ button,
 	}
 }
 
-.g-progress-bar {
-	height: 1em;
-	width: 100%;
-	margin: .5em 0;
-	display: inline-block;
+.g-progress-bar,
+.ui-progressbar {
+	@include progress-container;
+	@include radius();
 }
+.ui-progressbar .ui-progressbar-value {
+	@include progress-meter();
+	@include radius();
+	margin: 0;
+}
+.ui-progressbar .ui-progressbar-overlay {
+}
+.ui-progressbar-indeterminate .ui-progressbar-value {
+}
+
 
 /* Status and validation messages ~~~~ */
 
@@ -893,12 +906,13 @@ button,
 /* Pagination ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .g-paginator {
-	padding: .2em 0;
 }
 
 .g-paginator .g-pagination-text {
-	padding: .2em 0;
+	padding-top: emCalc(7);
+	padding-bottom: emCalc(8);
 	text-align: center;
+	line-height: normal;
 }
 
 /* Dialogs and panels ~~~~~~~~~~~~~~~~~~ */
@@ -910,6 +924,7 @@ button,
 
 #g-dialog .g-cancel {
 	@include button-style($bg:$secondary-color);
+	line-height: normal;
 }
 
 #g-dialog input.submit,

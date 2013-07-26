@@ -23,7 +23,7 @@ class foundation_event_Core {
 	const TEMPLATE_DROPDOWN = 'dropdown.html';
 	const TEMPLATE_TOPBAR   = 'topbar.html';
 
-	const CLASS_VIEW_MENU   = 'button secondary';
+	const CLASS_VIEW_MENU   = 'button small secondary';
 
 	static function album_menu($menu, $theme)
 	{
