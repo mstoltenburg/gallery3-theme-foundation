@@ -99,7 +99,7 @@
 				 </li>
 				<? endforeach ?>
 			<? else: ?>
-				 
+				<li> </li>
 			<? endif ?>
 			</ul>
 <!--
