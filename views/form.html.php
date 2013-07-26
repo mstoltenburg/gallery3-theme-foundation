@@ -60,7 +60,7 @@ if (!function_exists("DrawForm")) {
 				}
 				if ($input->error_messages()) {
 					foreach ($input->error_messages() as $error_message) {
-						print "$prefix	<small class=\"error\">\n";
+						print "$prefix	<small class=\"g-error error\">\n";
 						print "$prefix		$error_message\n";
 						print "$prefix	</small>\n";
 					}

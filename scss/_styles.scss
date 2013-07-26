@@ -117,6 +117,11 @@ textarea {
 
 /* Forms in dialogs and panels ~~~~~~~~~ */
 
+#g-login-form,
+#g-add-user-form
+#g-edit-user-form,
+#g-delete-user-form,
+#g-user-admin,
 #g-dialog form {
 	width: auto;
 }
@@ -508,11 +513,11 @@ th {
 	cursor: text;
 }
 
-.g-error {
-	color: $alert-color;
-}
+// .g-error {
+// 	color: $alert-color;
+// }
 
-.g-message-block .g-error,
+.g-error,
 .g-info,
 .g-success,
 .g-warning {
@@ -524,27 +529,31 @@ th {
 	}
 }
 
-.g-error input,
-.g-error textarea,
-.g-error select {
-	border: 2px solid $alert-color;
-	margin-bottom: .25em;
-}
+// .g-error input,
+// .g-error textarea,
+// .g-error select {
+// 	border: 2px solid $alert-color;
+// 	margin-bottom: .25em;
+// }
 
-p.g-error {
-	font-size: $alert-font-size;
+// p.g-error {
+// 	font-size: $alert-font-size;
 
-	&:before {
-		content: "!";
-		@include alert-message-icon();
-	}
-}
+// 	&:before {
+// 		content: "!";
+// 		@include alert-message-icon();
+// 	}
+// }
 
-.g-message-block .g-error {
+.g-error {
 	@include alert-style-extended($alert-color);
 	&:before {
 		content: "!"; // 2718 26D4
 	}
+
+}
+.error small.error {
+	margin-top: 0; // override foundation
 }
 
 .g-info {
@@ -1043,3 +1052,10 @@ button,
 #g-add-photos-form .g-breadcrumbs {
 	margin-bottom: emCalc(20);
 }
+
+#g-add-comment {
+	#{$default-float}: auto;
+	#{$opposite-direction}: $panel-padding;
+	top: $panel-padding;
+}
+
