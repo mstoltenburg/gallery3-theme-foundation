@@ -163,18 +163,6 @@ $topbar-divider-border-bottom-color: nth($topbar-divider-border-bottom, 3);
 }
 
 
-// set custom modal sizes
-@media #{$small} {
-	.#{$reveal-modal-class} {
-		&.tiny  { @include reveal-modal-base(false, 30%); }
-		&.small { @include reveal-modal-base(false, 300px); }
-		&.medium  { @include reveal-modal-base(false, 500px); }
-		&.large { @include reveal-modal-base(false, 70%); }
-		&.xlarge { @include reveal-modal-base(false, 95%); }
-	}
-}
-
-
 // Custom mixins
 @import "mixins";
 
