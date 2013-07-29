@@ -401,9 +401,13 @@ th {
 
 #g-permissions table {
 	width: 100%;
+	margin-bottom: 0;
 }
 
-#g-permissions td {
+#g-permissions fieldset {
+	margin: 0;
+	border: 0;
+	padding: 0;
 }
 
 #g-permissions .g-denied {
@@ -935,6 +939,7 @@ button,
 	line-height: normal;
 }
 
+#g-dialog button,
 #g-dialog input.submit,
 #g-dialog .g-cancel {
 	margin-bottom: 0;
