@@ -47,7 +47,7 @@ class foundation_event_Core {
 
 	static function context_menu($menu, $theme, $item, $thumb_css_selector)
 	{
-		$menu->view('dropdown.html')->css_class('context-menu-dropdown');
+		$menu->view(self::TEMPLATE_DROPDOWN)->css_class('context-menu-dropdown');
 
 		self::_changeMenuRecursive($menu, self::TEMPLATE_DROPDOWN, $item);
 	}
