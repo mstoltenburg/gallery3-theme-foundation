@@ -293,16 +293,6 @@ th {
 	margin-bottom: 1em;
 }
 
-#g-album-grid .g-item {
-//	text-align: center;
-}
-
-#g-album-grid .g-item > div {
-}
-
-#g-album-grid .g-item h2 {
-}
-
 #g-album-grid .g-item img {
 	width: 100%;
 }
@@ -318,7 +308,7 @@ th {
 	}
 }
 
-#g-album-grid .g-item .g-caption {
+#g-album-grid .g-caption {
 	position: absolute;
 	width: 100%;
 	overflow: hidden;
@@ -342,6 +332,11 @@ th {
 		display: block;
 		padding: .375em 0;
 	}
+}
+
+#g-album-grid .g-album h2 {
+	opacity: 1;
+	max-height: none;
 }
 
 #g-album-grid .g-item .g-metadata {
