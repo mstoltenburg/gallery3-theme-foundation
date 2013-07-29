@@ -27,7 +27,7 @@
 ?>
 
 <ul class="g-paginator row">
-  <li class="g-first small-6 large-4 columns">
+  <li class="g-first small-6 medium-4 large-4 columns">
   <? if ($page_type == "collection"): ?>
     <? if (isset($first_page_url)): ?>
       <a href="<?= $first_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-first"><?= t("First") ?></span></a>
@@ -43,7 +43,7 @@
   <? endif ?>
   </li>
 
-  <li class="g-pagination-text hide-for-small large-4 columns">
+  <li class="g-pagination-text hide-for-small medium-4 large-4 columns">
     <? if ($total): ?>
       <? if ($page_type == "collection"): ?>
         <?= /* @todo This message isn't easily localizable */
@@ -61,7 +61,7 @@
     <? endif ?>
   </li>
 
-  <li class="g-text-right small-6 large-4 columns">
+  <li class="g-text-right small-6 medium-4 large-4 columns">
   <? if (isset($next_page_url)): ?>
     <a href="<?= $next_page_url ?>" class="button small radius secondary"><span class="ui-icon-seek-next"><?= t("Next") ?></span></a>
   <? else: ?>
