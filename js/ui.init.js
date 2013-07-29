@@ -28,6 +28,22 @@
 			});
 	};
 
+	// var sizeRelatedOptions = {
+	// 		buttons: true,
+	// 		height: true,
+	// 		maxHeight: true,
+	// 		maxWidth: true,
+	// 		minHeight: true,
+	// 		minWidth: true,
+	// 		width: true
+	// 	},
+	// 	resizableRelatedOptions = {
+	// 		maxHeight: true,
+	// 		maxWidth: true,
+	// 		minHeight: true,
+	// 		minWidth: true
+	// 	};
+
 	$.widget( "ui.dialog", $.ui.dialog, {
 
 		_currentEvent: null,
@@ -69,7 +85,8 @@
 				// .removeClass()
 				.addClass("reveal-modal")
 				.css({
-					top: '100px',
+					position: 'absolute',
+					top: '6.25em',
 					left: '50%',
 					width: ''
 				})
@@ -97,6 +114,27 @@
 			}
 
 			this.uiDialog.foundation("reveal", "close");
+		},
+
+		_setOptions: function( options ) {
+			$.each( options, function( key, value ) {
+				switch (key) {
+					case 'width':
+					case 'height':
+					case 'position':
+						delete options[key];
+						break;
+				}
+
+				// if ( key in sizeRelatedOptions ) {
+				// 	console.log('size: ' + key);
+				// }
+				// if ( key in resizableRelatedOptions ) {
+				// 	console.log('resize: ' + key);
+				// }
+			});
+
+			this._super( options );
 		}
 
 	});
@@ -112,7 +150,7 @@
 			var galleryDialog = $("#g-dialog");
 			var dialogClass;
 			var dialogHeight = galleryDialog.height();
-			var childWidth = $("#g-dialog form").width();
+			// var childWidth = $("#g-dialog form").width();
 			var size = $.gallery_get_viewport_size();
 
 			// console.log(size.width(), window.innerWidth);
@@ -125,8 +163,8 @@
 			} else if ($("#g-dialog .g-dialog-panel").length) {
 				dialogClass = "xlarge";
 				galleryDialog.height(size.height() - 100);
-			} else if (childWidth <= 150 || childWidth > 300) {
-				dialogClass = "medium";
+			// } else if (childWidth <= 150 || childWidth > 300) {
+			// 	dialogClass = "small";
 			} else {
 				dialogClass = "small";
 			}

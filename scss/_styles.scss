@@ -308,11 +308,16 @@ th {
 	}
 }
 
+.g-caption span,
+.g-caption li {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #g-album-grid .g-caption {
 	position: absolute;
 	width: 100%;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	margin: 0;
 	padding: 0 .5em;
 	color: $orbit-caption-font-color;
@@ -935,6 +940,7 @@ button,
 .ui-dialog .ui-dialog-titlebar {
 	font-size: inherit;
 	line-height: 1.1;
+	margin-bottom: 1.25em;
 	// position: relative;
 }
 .ui-dialog .ui-dialog-title {
