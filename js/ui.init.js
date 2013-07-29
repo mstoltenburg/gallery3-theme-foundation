@@ -6,6 +6,8 @@
 	'use strict';
 
 	// Override gallery function
+	$.fn.gallery_hover_init = function() {};
+
 	$.fn.gallery_show_message = function() {
 		this.append('<a href="#" class="close">&times;</a>')
 			.addClass("visible")
@@ -148,6 +150,9 @@ $(document).ready(function() {
 	// Initialize short forms
 	$(".g-short-form").gallery_short_form();
 
+	// Initialize ajax links
+	$(".g-ajax-link").gallery_ajax();
+
 	// Apply jQuery UI icon, hover, and rounded corner styles
 	// $("input[type=submit]:not(.g-short-form input)").addClass("ui-state-default ui-corner-all");
 	if ($("#g-view-menu").length) {
@@ -226,9 +231,9 @@ $(document).ready(function() {
 		$("#g-photo,#g-movie").gallery_fit_photo();
 
 		// Initialize context menus
-		$("#g-photo,#g-movie").hover(function(){
-			$(this).gallery_context_menu();
-		});
+		// $("#g-photo,#g-movie").hover(function(){
+		// 	$(this).gallery_context_menu();
+		// });
 
 		// Add scroll effect for links to named anchors
 		$.localScroll({
@@ -237,11 +242,11 @@ $(document).ready(function() {
 			hash: true
 		});
 
-		$(this).find(".g-dialog-link").gallery_dialog();
-		$(this).find(".g-ajax-link").gallery_ajax();
+		// $(this).find(".g-dialog-link").gallery_dialog();
+		// $(this).find(".g-ajax-link").gallery_ajax();
 	}
 
 	// Initialize button hover effect
-	$.fn.gallery_hover_init();
+	// $.fn.gallery_hover_init();
 
 });
