@@ -44,6 +44,8 @@ if (!function_exists("DrawForm")) {
 			} else {
 				if ($level > 3) {
 					$rowClass = 'large-6 columns';
+				} else {
+					$rowClass = 'large-12 columns';
 				}
 				if ($input->error_messages()) {
 					print "$prefix<div class=\"$rowClass error\">\n";
