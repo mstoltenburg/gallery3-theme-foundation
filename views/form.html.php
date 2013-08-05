@@ -29,10 +29,18 @@ if (!function_exists("DrawForm")) {
 			if ($input->type == 'group') {
 				print "$prefix<fieldset>\n";
 				print "$prefix	<legend>{$input->label}</legend>\n";
-				print "$prefix	<div class=\"row\">\n";
+				if ($level > 1) {
+					print "$prefix	<div class=\"row\"><div class=\"row\">\n";
+				} else {
+					print "$prefix	<div>\n";
+				}
 
 				DrawForm($input->inputs, $level + 2);
-				print "$prefix	</div>\n";
+				if ($level > 1) {
+					print "$prefix	</div></div>\n";
+				} else {
+					print "$prefix	</div>\n";
+				}
 
 				// Since hidden fields can only have name and value attributes lets just render it now
 				foreach ($input->hidden as $hidden) {
@@ -45,7 +53,7 @@ if (!function_exists("DrawForm")) {
 				if ($level > 3) {
 					$rowClass = 'large-6 columns';
 				} else {
-					$rowClass = 'large-12 columns';
+					$rowClass = '';
 				}
 				if ($input->error_messages()) {
 					print "$prefix<div class=\"$rowClass error\">\n";
