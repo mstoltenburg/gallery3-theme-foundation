@@ -945,7 +945,7 @@ button,
 	// position: relative;
 }
 .ui-dialog .ui-dialog-title {
-	float: left;
+	float: $default-float;
 	white-space: nowrap;
 	width: 90%;
 	overflow: hidden;
